@@ -1,3 +1,28 @@
-.)bn‹RzWè®§‹6­Š‰è~Z¢j-Š‰Ü…ªÚr×«‹7¬¶Ÿy«n­êjëh™«bq©eÊÊhÖ§z‹¬¨­éŞ­«b¢|"¶.¶šŞ¦º ­©¦yÙb™¹¨½é×(¢·b«b¢tè²ÛÊØb±÷š¶êŞŠz®iÚî¥çe¡Ê&¢Ø¨Ÿ©®Šh±è^­æ§{
-)z{(º·²f¥–È³yÚŞr‰ßŠ«i¹^ªæ®ê^vº¢×–W.)bn‹pŠØfº[b¦W¬z{(¯'ŞyÖÚrF§v+l¦¬‰Æ¥²)®•«b¢râ–&è·¬uë"‚wjÆŸ®'§v\ª¹§kº—jZej×è®l"¶§Š«r«iË^®+-‰Ë"Énv)à–(!·¢‚^jÌ¡jweŠx&¡Û¥j·(šš'z{ljwfº[b¦W«y©mŠg¬z{(¯'ŞyÖÚrB-²jºV«r‰©¢w§¶Ç·Ÿ•ìbn\«yÊ'~(.­çm¢†íj)ŞØŸ}êŞÙ^‚Šâz{Z¶*'±ú+µë-Šx-…çŸ}ç-Š÷§zËØêÚ–,Ú¶*'¡ö¬zWè®§‹7–‡(š‹b¢w(Úè–W«"Û½¨¥i¹^šémŠ™^±éì¢¼Ÿyç[iÉ"z:"Ö§‚W¬ˆ§¶÷¥¡È­‰ë#¢)írêëz{lˆ§¶ú%µ¨±ë\Š{hµ©zÕÆ§²êi¢»ozËbnéZ®·Ÿ•ì^±©İr‰©–&§µÊ'¶º%™ç!jx¬šÇè­ºÊš,¶êŞ²Ö›ŠX³jØ¨©İr‰©–&§µ·¡jø¨®·¬¥ç-Š÷¥É:½©nj×­…ê^­ú+™©Üz‡ËŠX›¢ÜŠjezg§µçhº·^½éh¥çZuªmŠ÷§zêÚ•Ê'¶º%•êè+DÆ—«Šg§µ©kzË¥¶Ë!£ajÒâ–&èµÆ§jëh‰¨ºÉrjwjº'$—*^­ú+™§Z¦Ø¯y©İ½êìjØ¥y·¡jø¨®È§r[Šx,¦‰íjw¨ºË•ú+©âÍçe¡Ê&¢Ø¨'šuªmŠ÷¥¡Ê&¢Ø¨·¡jø¨®éİz·b}÷«z{ez
-+‰éíjØ¨Æèw*h²Û«zËZn)bÍ«b¢z'jØ¥µ¦åz™Zæ§vW r‰©–&§qçè®éŞÆ—œµç^Æ×«©e¡§\¢j^Æ­Š‰Ó¢Øb±éİÁë.qÇuçb×¯zZ)ŠxŠ^Ê.­ÇŸ®'§v\¬™©e²,Şu©İ–(!·¢‚j¹§kº—®†è·­†·œ¢wâ‚êÚnW¥zÙ®–Ø©•ëÊ+É÷u¶œ’ØZµÆ§±êïy«éŞ®'*¹§kº—¦V­~Šæ~ŠëzÇš­ÈZ×¹Æ­Š‰âØ^v‰šŠz–‡(š‹b¢{Ş²Ø›ºV«­çå{Ú±çZ×(š™bj{\¢{k¢[
+                                            LILIBOT
+
+1) Intriduction
+
+Self-organization of locomotion characterizes the feature of automatically spontaneous gait generation without preprogrammed limb movement coordination. To study this feature in quadruped locomotion, we propose here a new open-source small-sized reconfigurable quadruped robot (called Lilibot) with multiple sensory feedback and its physical simulation. Lilibot was designed as a friendly quadrupedal platform with unique characteristics, including lightweight, easy-handling, modular components, and multiple real-time sensory feedback. Its modular components can be flexibly reconfigured to obtain, e.g., different leg orientations for testing the effectiveness and generalization of a self-organized locomotion controller. Its available multiple sensory feedback (i.e., joint angles, joint velocities, joint currents, joint voltages, etc., in total 61) can support vestibular reflexes and compliant control mechanisms for body posture stabilization and compliant behavior, respectively. To evaluate the performance of Lilibot, we implemented our developed adaptive neural controller on it. Experimental results show that Lilibot can autonomously and quickly perform adaptive and versatile behaviors including spontaneous self-organized locomotion (i.e., adaptive locomotion behavior) under different leg orientations, body posture stabilization on a tiltable plane, and leg compliance for unexpected external load compensation. To this end, we succeeded in developing an open-source, friendly, small-sized and lightweight quadruped robot with reconfigurable legs and multiple sensory feedback that can serve as a generic quadruped platform for research and education in the domain of locomotion, vestibular reflex-based, and compliant controls.
+
+
+2) Framework
+
+The control code was put on controllers folder,and the robots folder is the interface code for a real robot. The Vrep simulation model was put in vrep_simulation folder
+
+3) The steps to implement this project on your PC:
+
+3.0) Install VREP
+3.1) Install ROS kinetic
+3.2) Install git
+3.3) mkdir -p ~/workspace/stbot/ && cd ~/workspace/stbot/
+3.4) git clone https://gitlab.com/neutron-nuaa/lilibot
+3.5) cd ./lilibot/catkin_ws && catkin_make
+3.6) Run simularion, 
+    a) roscore
+    b) cd vrep_simualtion && vrep lilibot-V5
+
+4) How to implement your controller
+
+ Just edit the file of lilibot_controller_node.cpp
+you can find this file at src/lilibot_controller/src/lilibot_controller_node.cpp
+
