@@ -29,6 +29,7 @@ The control code is putted in controllers folder,and the robots folder is the in
 4) How to implement your controller
 
 Just edit the file of lilibot_controller_node.cpp
-you can find this file at controller/src/lilibot_controller/src/lilibot_controller_node.cpp
+you can find this file at controller/catkin_ws/src/lilibot_controller/src/lilibot_controller_node.cpp
 
 
+5) If you have any question about how to use this, please feel free to contact Tao Sun (email: suntao.hn@gmail.com, or write a issue)
