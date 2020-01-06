@@ -1,18 +1,23 @@
                                             LILIBOT
 
-1) Intriduction
+1) Introduction
 
-Self-organization of locomotion characterizes the feature of automatically spontaneous gait generation without preprogrammed limb movement coordination. To study this feature in quadruped locomotion, we propose here a new open-source small-sized reconfigurable quadruped robot (called Lilibot) with multiple sensory feedback and its physical simulation. Lilibot was designed as a friendly quadrupedal platform with unique characteristics, including lightweight, easy-handling, modular components, and multiple real-time sensory feedback. Its modular components can be flexibly reconfigured to obtain, e.g., different leg orientations for testing the effectiveness and generalization of a self-organized locomotion controller. Its available multiple sensory feedback (i.e., joint angles, joint velocities, joint currents, joint voltages, etc., in total 61) can support vestibular reflexes and compliant control mechanisms for body posture stabilization and compliant behavior, respectively. To evaluate the performance of Lilibot, we implemented our developed adaptive neural controller on it. Experimental results show that Lilibot can autonomously and quickly perform adaptive and versatile behaviors including spontaneous self-organized locomotion (i.e., adaptive locomotion behavior) under different leg orientations, body posture stabilization on a tiltable plane, and leg compliance for unexpected external load compensation. To this end, we succeeded in developing an open-source, friendly, small-sized and lightweight quadruped robot with reconfigurable legs and multiple sensory feedback that can serve as a generic quadruped platform for research and education in the domain of locomotion, vestibular reflex-based, and compliant controls.
+
+Lilibot is a small size, light weight, and  open-sourced quadruped robot. It was developed as a easily handling platform with multiple sensory feedback and flexible legs configurations for studying bio-inspired locomotion. The features of small size and light weight provide Lilibot with several apparent advantages, such as an easily modular design, and simple yet practical structure. It can be handled with ease to conduct joint control and locomotion generation, owing to its appropriate 1) actuator torque (4.2 Nm, which is not dangerous to handlers), 2) size (its length, width, and height are 30 cm, 17.5 cm, and 20 cm, respectively, when it stands), and 3) weight (2.5 kg) for operation. Moreover, it has considerable endurance capability, which allows it to handle an approximately 1.25 kg payload to walk up to 30 minutes. This enables Lilibot as a mobile platform to carry more sensors (for instance, cameras and laser radars for studying motion planning in irregular environments). In addition to the real robot, the compatible Lilibot simulator can improve the research efficiency by using simulation for pre-tests before doing experiments.
+
+This repository includes the Lilibot CAD models, simulator on the virtual robot experimentation platform (V-REP, the new version of the V-REP is called CoppeliaSim at http://www.coppeliarobotics.com/) and its control framework. The control framework is based on the robot system operation (ROS), which provides communications between the real robot, controller, and the simulator (simulated robot). Thus, before one use this system, who need to install V-rep or CoppeliaSim and ROS on Ubuntu 16.04 or 18.04. 
 
 
 2) Framework
 
-The control code was put on controllers folder,and the robots folder is the interface code for a real robot. The Vrep simulation model was put in vrep_simulation folder
+The files are organized as follows:
 
-3) The steps to implement this project on your PC:
+The control code is putted in controllers folder,and the robots folder is the interface code for a real robot. The Vrep simulation model was put in vrep_simulation folder
+
+3) The steps to implement this project on your PC (Ubuntu OS):
 
 3.0) Install VREP
-3.1) Install ROS kinetic
+3.1) Install ROS kinetic or melodic depending on the version of your ubuntu 
 3.2) Install git
 3.3) mkdir -p ~/workspace/stbot/ && cd ~/workspace/stbot/
 3.4) git clone https://gitlab.com/neutron-nuaa/lilibot
@@ -23,6 +28,7 @@ The control code was put on controllers folder,and the robots folder is the inte
 
 4) How to implement your controller
 
- Just edit the file of lilibot_controller_node.cpp
-you can find this file at src/lilibot_controller/src/lilibot_controller_node.cpp
+Just edit the file of lilibot_controller_node.cpp
+you can find this file at controller/src/lilibot_controller/src/lilibot_controller_node.cpp
+
 

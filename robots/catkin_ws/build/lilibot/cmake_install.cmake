@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "")
+    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -45,5 +45,33 @@ endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lilibot" TYPE FILE FILES "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/src/lilibot/package.xml")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  if(EXISTS "$ENV{DESTDIR}/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/src/lilibot/lilibot_node" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/src/lilibot/lilibot_node")
+    file(RPATH_CHECK
+         FILE "$ENV{DESTDIR}/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/src/lilibot/lilibot_node"
+         RPATH "")
+  endif()
+  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
+   "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/src/lilibot/lilibot_node")
+  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+file(INSTALL DESTINATION "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/src/lilibot" TYPE EXECUTABLE FILES "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/devel/lib/lilibot/lilibot_node")
+  if(EXISTS "$ENV{DESTDIR}/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/src/lilibot/lilibot_node" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/src/lilibot/lilibot_node")
+    file(RPATH_CHANGE
+         FILE "$ENV{DESTDIR}/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/src/lilibot/lilibot_node"
+         OLD_RPATH "/opt/ros/kinetic/lib:"
+         NEW_RPATH "")
+    if(CMAKE_INSTALL_DO_STRIP)
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/src/lilibot/lilibot_node")
+    endif()
+  endif()
 endif()
 

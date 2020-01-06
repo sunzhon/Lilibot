@@ -1,0 +1,8 @@
+prefix=/home/suntao/workspace/gorobots/utils/real_robots/stbot/catkin_ws/install
+
+Name: lilibot_imu
+Description: Description of lilibot_imu
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/suntao/workspace/gorobots/utils/real_robots/stbot/catkin_ws/install/lib 
+Requires: 

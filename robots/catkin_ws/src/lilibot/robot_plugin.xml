@@ -1,0 +1,7 @@
+<library path="lib/libstbot_hw_interface">
+    <class name="stbot_hardware_interface/StbotInterface" type="stbot_hardware_interface::StbotInterface" base_class_type="hardware_interface::RobotHW">
+    <description>
+    "stbot robot interface"
+    </description>
+    </class>
+</library>

@@ -1,0 +1,8 @@
+prefix=/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/devel
+
+Name: laikago
+Description: Description of laikago
+Version: 0.0.0
+Cflags: -I/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/src/laikago/include
+Libs: -L/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/devel/lib -llaikago
+Requires: roscpp std_msgs

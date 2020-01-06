@@ -1,0 +1,37 @@
+#!/bin/python3
+import os
+import sys
+
+
+
+
+if __name__=="__main__":
+    startpath=os.environ['GOROBOTS'] + "/utils/real_robots/stbot/catkin_ws/src/start_robot/start_lilibot"
+    bluetooth="/dev/input/js0"
+    if not os.path.exists(bluetooth):
+        print("not connect to joystick, program exit")
+        sys.exit(1)
+
+    print("please UP or Down  joystick")
+    data=[]
+    done=True
+    with open(bluetooth, 'rb') as f:
+        while done:
+            a=f.readline(1)
+            data.append(ord(a))
+            if len(data)==16:
+                #print(data)
+                if (data[-2] == 2) and (data[-1]==0) :
+                    print("Causion, Lilibot will move")
+                    os.system(startpath)
+                    done=False
+                    break
+                if((data[-3]==0) and (data[-2]==1) and (data[-1]==8)):
+                    print("shutdown down the robot computer!")
+                    os.system("sudo shutdown now")
+                    done=False
+                    break
+                data.clear()
+
+
+

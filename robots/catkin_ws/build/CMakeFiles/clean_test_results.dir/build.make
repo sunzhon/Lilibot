@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/suntao/workspace/stbot/lilibot/robots/catkin_ws/build
 include CMakeFiles/clean_test_results.dir/progress.make
 
 CMakeFiles/clean_test_results:
-	/home/suntao/.pyenv/shims/python /opt/ros/kinetic/share/catkin/cmake/test/remove_test_results.py /home/suntao/workspace/stbot/lilibot/robots/catkin_ws/build/test_results
+	/home/suntao/.pyenv/shims/python /opt/ros/kinetic/share/catkin/cmake/test/remove_test_results.py /home/suntao/workspace/gorobots/utils/real_robots/stbot/catkin_ws/build/test_results
 
 clean_test_results: CMakeFiles/clean_test_results
 clean_test_results: CMakeFiles/clean_test_results.dir/build.make

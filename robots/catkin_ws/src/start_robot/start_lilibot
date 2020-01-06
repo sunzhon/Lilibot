@@ -1,0 +1,10 @@
+#! /bin/sh
+path_1=$0
+path_2=${path_1%/*}
+link_node="/link_node_file.sh"
+init_usb="/init_usb_port.sh"
+. ${path_2}${link_node}
+. ${path_2}${init_usb}
+
+roslaunch lilibot lilibot.launch
+

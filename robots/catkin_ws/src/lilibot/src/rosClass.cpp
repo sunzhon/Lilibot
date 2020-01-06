@@ -10,13 +10,13 @@ namespace lilibot_ns{
 
         std::string nodeName("Lilibot");
         ros::init(argc,argv,nodeName);
-        spinner = new ros::AsyncSpinner(2);
+        spinner = new ros::AsyncSpinner(0);
         spinner->start();
         if(!ros::master::check())
             ROS_ERROR("ros::master::check() did not pass!");
 
         node = new ros::NodeHandle();
-        ros::Duration period(1.0/333); // 333Hz update rate
+        ros::Duration period(1.0/100); // 333Hz update rate
         init();
         ROS_INFO("Lilibot Robot RosClass");
     }
@@ -26,9 +26,12 @@ namespace lilibot_ns{
         spinner->stop();
         delete spinner;
         delete node;
+        delete rate;
         ros::shutdown();
     }
-
+    void RosClass::rosSleep(){
+        rate->sleep();
+        }
     //puiblic----------------------------
     bool RosClass::init()
     {
@@ -66,17 +69,23 @@ namespace lilibot_ns{
             ROS_ERROR("motr_num given (namespace: %s)", node->getNamespace().c_str());
             return false;
         }
-
+        //ros_rate
+        int ros_rate;
+        if (!node->getParam("ros_rate", ros_rate)){
+            ROS_ERROR("ros_rate (namespace: %s)", node->getNamespace().c_str());
+            return false;
+        }
+        rate = new ros::Rate(ros_rate);
 
         // subscribe topic
         std::vector<std::string> subscribe_name;
-        if (!node->getParam("subscribe", subscribe_name)){
+        if (!node->getParam("robotSubscribeTopic", subscribe_name)){
             ROS_ERROR("No subscribe given (namespace: %s)", node->getNamespace().c_str());
             return false;
         }
         // advertise topic
         std::vector<std::string> advertise_name;
-        if (!node->getParam("advertise", advertise_name)){
+        if (!node->getParam("robotAdvertiseTopic", advertise_name)){
             ROS_ERROR("No advertise given (namespace: %s)", node->getNamespace().c_str());
             return false;
         }
@@ -87,6 +96,9 @@ namespace lilibot_ns{
 
         // Start cpgCommand subscriber
         reflexValueSub= node->subscribe<std_msgs::Float32MultiArray>(subscribe_name.at(1), 1, &RosClass::reflexValueCallback, this);
+        //subsriber terminate
+        terminateNodeSub= node->subscribe(subscribe_name.at(2), 2, &RosClass::terminateNodeCallback, this);
+
         //init variable
         motorValue.resize(motor_num);
         cpgValue.resize(motor_num);
@@ -124,11 +136,17 @@ namespace lilibot_ns{
             reflexValue[idx]=array.data[idx];
 
     }
+    void RosClass::terminateNodeCallback(const std_msgs::Bool& termNode)
+    {
+        terminateNode=termNode.data;
+        if(terminateNode)
+            terminate=true;
+    }
 
     void RosClass::updateMotorValue(){
         for(uint8_t idx=0;idx<motor_num;idx++)
             motorValue[idx]=cpgValue[idx];//reflexValue[idx];// + cpgValue[idx];
-            //motorValue[idx]=reflexValue[idx];// + cpgValue[idx];
+        //motorValue[idx]=reflexValue[idx];// + cpgValue[idx];
     }
     ros::NodeHandle* RosClass::getHandle(){
         return node;

@@ -1,0 +1,20 @@
+#! /bin/sh
+
+#path_1=$0
+#path_2=${path_1%/*}
+#link_node="/link_node_file.sh"
+#. ${path_2}${link_node}
+#roslaunch stbot stbot.launch
+
+
+current_path=$(cd `dirname $0`;pwd)
+link_node="/link_node_file.sh"
+# initial the rospack path
+. $GOROBOTS/projects/stbot/genesis/catkin_ws/devel/setup.sh
+# build a link of the node
+. ${current_path}${link_node}
+
+
+
+
+roslaunch stbot stbot.launch

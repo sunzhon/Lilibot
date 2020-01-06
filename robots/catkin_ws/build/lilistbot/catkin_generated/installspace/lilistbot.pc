@@ -1,0 +1,8 @@
+prefix=/home/suntao/workspace/gorobots/utils/real_robots/stbot/catkin_ws/install
+
+Name: lilistbot
+Description: Description of lilistbot
+Version: 0.0.0
+Cflags: -I/home/suntao/workspace/gorobots/utils/real_robots/stbot/catkin_ws/install/include
+Libs: -L/home/suntao/workspace/gorobots/utils/real_robots/stbot/catkin_ws/install/lib -llilistbot
+Requires: roscpp std_msgs dynamixel_workbench_msgs dynamixel_workbench_toolbox message_runtime

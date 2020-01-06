@@ -13,6 +13,7 @@
 #include <realtime_tools/realtime_publisher.h>
 #include <ros/node_handle.h>
 #include <std_msgs/Float64.h>
+#include "std_msgs/Bool.h"
 #include <std_msgs/Float32MultiArray.h>
 #include <urdf/model.h>
 #include <sensor_msgs/JointState.h>
@@ -27,18 +28,22 @@ namespace lilibot_ns{
             RosClass(int argc,char** argv);
             ~RosClass();
             bool init();
+            void rosSleep();
 
         private:
             ros::Publisher sensorValuePub;
             ros::Subscriber cpgValueSub;
             ros::Subscriber reflexValueSub;
+            ros::Subscriber terminateNodeSub;
 
             void motorValueCallback(const std_msgs::Float32MultiArray array);
             void reflexValueCallback(const std_msgs::Float32MultiArray array);
+            void terminateNodeCallback(const std_msgs::Bool& termNode);
+
             void updateMotorValue();
             ros::AsyncSpinner* spinner;
             ros::NodeHandle* node;
-            
+            ros::Rate * rate;
             std::vector<command> motorValue;
             std::vector<command> reflexValue;
             std::vector<command> cpgValue;
@@ -50,6 +55,10 @@ namespace lilibot_ns{
             ros::NodeHandle* getHandle();
             int motor_num;
             int sensor_num;
+            bool terminate=false;
+        private:
+            bool terminateNode=false;
+
     };
 }//namespace
 

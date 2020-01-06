@@ -1,0 +1,29 @@
+  dxl_device: /dev/XM430
+  dxl_baud: 4000000
+  imu_device: /dev/JY901
+  imu_baud: 230400
+  profile_velocity: 500
+  profile_acceleration: 500
+  scan_range: 13
+  joints: [joint1,joint2,joint3,joint4,joint5,joint6,joint7,joint8,joint9,joint10,joint11,joint12]
+  legs: [leg1, leg2, leg3, leg4]
+  imu: imu_sensor
+  footforce: footforce_sensor
+  stickA: stick_axes
+  stickB: stick_button
+  leg_num: 4
+  motor_num: 12
+  pose_num: 6
+  sensor_num: 58
+  ros_rate: 100
+  p_gain: 0.4
+  d_gain: 0.4
+  WalkingMode: 0.0
+    
+  robotSubscribeTopic:
+   - motorValues
+   - reflexValues
+   - terminateController
+  robotAdvertiseTopic:
+   - sensorValues
+

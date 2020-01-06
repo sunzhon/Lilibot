@@ -127,9 +127,9 @@ void StStick::guide(){
             switch(GCommand.button){
                 case 0:
                     node_handle->getParam("MI",temp);
-                    if((temp>0.00)&&(temp<0.25)){
-                        node_handle->setParam("MI",temp-0.01);
-                        cout<<"-> decrese mi:"<<temp-0.01<<endl;
+                    if((temp>0.02)&&(temp<0.95)){
+                        node_handle->setParam("MI",temp-0.02);
+                        cout<<"-> decrese mi:"<<temp-0.02<<endl;
                     }
                     break;  
                 case 1:
@@ -171,9 +171,9 @@ void StStick::guide(){
                     break;
                 case 3:
                     node_handle->getParam("MI",temp);
-                    if((temp>-0.02)&&(temp<0.22)){
-                        node_handle->setParam("MI",temp + 0.01);
-                        cout<<"-> increase mi:"<<temp+0.01<<endl;
+                    if((temp>-0.02)&&(temp<0.92)){
+                        node_handle->setParam("MI",temp + 0.02);
+                        cout<<"-> increase mi:"<<temp+0.02<<endl;
                     }
                     break;
                 case 4:
@@ -258,7 +258,6 @@ void StStick::guide(){
                     if(!node_handle->getParam("WalkingMode",temp))
                         ROS_INFO("can't get walking_mode");
                     node_handle->setParam("WalkingMode",0.0);
-                    cout<<"-> now is walking"<<endl;
                     break;
                 case 9:
                     node_handle->setParam("WalkingMode",1.0);
@@ -339,7 +338,7 @@ void StStick::guide(){
                     break;
 
                 case 3:
-                    if(GCommand.valueOffset==1){
+                    if(GCommand.valueOffset==-1){
                         if(!node_handle->getParam("MNB2_L1",temp))
                             ROS_INFO("can't get MNB2");
                         if((temp>-0.4)&&(temp<0.4)){
@@ -359,7 +358,7 @@ void StStick::guide(){
                             cout<<"-> decrease MNB3:"<<temp-0.02<<endl;
                         }
                     }
-                    if(GCommand.valueOffset==-1){
+                    if(GCommand.valueOffset==1){
                         node_handle->getParam("MNB2_L1",temp);
                         if((temp>-0.42)&&(temp<0.35)){
                             node_handle->setParam("MNB2_L1",temp+0.02);
@@ -382,27 +381,27 @@ void StStick::guide(){
                     if(GCommand.valueOffset==1){
                         if(!node_handle->getParam("p_gain",temp))
                             ROS_INFO("can't get p_gain");
-                        if((temp>0.002)&&(temp<0.03)){
-                            node_handle->setParam("p_gain",temp-0.001);
-                            cout<<"-> decrease p_gain:"<<temp-0.001<<endl;
+                        if(temp>0.1){
+                            node_handle->setParam("p_gain",temp-0.05);
+                            cout<<"-> decrease p_gain:"<<temp-0.05<<endl;
                         }
                         if(!node_handle->getParam("d_gain",temp))
                             ROS_INFO("can't get d_gain");
-                        if((temp>0.002)&&(temp<0.03)){
-                            node_handle->setParam("d_gain",temp-0.001);
-                            cout<<"-> decrease d_gain:"<<temp-0.001<<endl;
+                        if(temp>0.1){
+                            node_handle->setParam("d_gain",temp-0.05);
+                            cout<<"-> decrease d_gain:"<<temp-0.05<<endl;
                         }
                     }
                     if(GCommand.valueOffset==-1){
                         node_handle->getParam("p_gain",temp);
-                        if((temp>0.00)&&(temp<0.02)){
-                            node_handle->setParam("p_gain",temp+0.001);
-                            cout<<"-> increase p_gain:"<<temp+0.001<<endl;
+                        if(temp<2.0){
+                            node_handle->setParam("p_gain",temp+0.05);
+                            cout<<"-> increase p_gain:"<<temp+0.05<<endl;
                         }
                         node_handle->getParam("d_gain",temp);
-                        if((temp>0.00)&&(temp<0.02)){
-                            node_handle->setParam("d_gain",temp+0.001);
-                            cout<<"-> increase d_gain:"<<temp+0.001<<endl;
+                        if(temp<2.0){
+                            node_handle->setParam("d_gain",temp+0.05);
+                            cout<<"-> increase d_gain:"<<temp+0.05<<endl;
                         }
                     }
                     break;

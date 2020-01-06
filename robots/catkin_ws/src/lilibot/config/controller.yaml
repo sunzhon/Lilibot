@@ -1,0 +1,42 @@
+lilibot:
+  controller:
+    lilibot_controller:
+      type: lilibot_controller/LilibotController
+      joints: 
+        - joint1
+        - joint2
+        - joint3
+        - joint4
+        - joint5
+        - joint6
+        - joint7 
+        - joint8
+        - joint9
+        - joint10
+        - joint11
+        - joint12
+      imu: imu_sensor
+      footforce: footforce_sensor
+      stickA: stick_axes
+      stickB: stick_button
+      legs:
+        - leg1
+        - leg2
+        - leg3
+        - leg4
+      subscribe:
+        - cpgCommands
+      advertise:
+        - state
+        - ori  
+        - grf
+        - guide
+    lilibot_jointState:
+      type: joint_state_controller/JointStateController
+      publish_rate: 100
+
+    lilibot_jointControl:
+      type: effort_controllers/JointPositionController
+      joint: joint1
+      pid: {p: 2.0, i: 0.01, d: 1.0}
+

@@ -15,32 +15,19 @@ lilibot/CMakeFiles/lilibot_node.dir/src/lilibot.cpp.o
  /opt/ros/kinetic/include/dynamixel_sdk/group_sync_write.h
  /opt/ros/kinetic/include/dynamixel_sdk/packet_handler.h
  /opt/ros/kinetic/include/dynamixel_sdk/port_handler.h
- /opt/ros/kinetic/include/dynamixel_workbench_controllers/message_header.h
- /opt/ros/kinetic/include/dynamixel_workbench_controllers/position_control.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/AX.h
+ /opt/ros/kinetic/include/dynamixel_workbench_controllers/dynamixel_workbench_controllers.h
+ /opt/ros/kinetic/include/dynamixel_workbench_controllers/trajectory_generator.h
+ /opt/ros/kinetic/include/dynamixel_workbench_msgs/DynamixelCommand.h
+ /opt/ros/kinetic/include/dynamixel_workbench_msgs/DynamixelCommandRequest.h
+ /opt/ros/kinetic/include/dynamixel_workbench_msgs/DynamixelCommandResponse.h
  /opt/ros/kinetic/include/dynamixel_workbench_msgs/DynamixelState.h
  /opt/ros/kinetic/include/dynamixel_workbench_msgs/DynamixelStateList.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/EX.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/JointCommand.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/JointCommandRequest.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/JointCommandResponse.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/MX.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/MX2.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/MX2Ext.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/MXExt.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/PRO.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/PROExt.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/RX.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/XH.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/XL.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/XL320.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/XM.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/XMExt.h
- /opt/ros/kinetic/include/dynamixel_workbench_toolbox/control_table_item.h
  /opt/ros/kinetic/include/dynamixel_workbench_toolbox/dynamixel_driver.h
  /opt/ros/kinetic/include/dynamixel_workbench_toolbox/dynamixel_item.h
  /opt/ros/kinetic/include/dynamixel_workbench_toolbox/dynamixel_tool.h
  /opt/ros/kinetic/include/dynamixel_workbench_toolbox/dynamixel_workbench.h
+ /opt/ros/kinetic/include/geometry_msgs/Twist.h
+ /opt/ros/kinetic/include/geometry_msgs/Vector3.h
  /opt/ros/kinetic/include/ros/advertise_options.h
  /opt/ros/kinetic/include/ros/advertise_service_options.h
  /opt/ros/kinetic/include/ros/assert.h
@@ -105,6 +92,8 @@ lilibot/CMakeFiles/lilibot_node.dir/src/lilibot.cpp.o
  /opt/ros/kinetic/include/std_msgs/MultiArrayDimension.h
  /opt/ros/kinetic/include/std_msgs/MultiArrayLayout.h
  /opt/ros/kinetic/include/std_msgs/String.h
+ /opt/ros/kinetic/include/trajectory_msgs/JointTrajectory.h
+ /opt/ros/kinetic/include/trajectory_msgs/JointTrajectoryPoint.h
  /opt/ros/kinetic/include/xmlrpcpp/XmlRpcDecl.h
  /opt/ros/kinetic/include/xmlrpcpp/XmlRpcValue.h
 lilibot/CMakeFiles/lilibot_node.dir/src/main.cpp.o
@@ -150,33 +139,19 @@ lilibot/CMakeFiles/lilibot_node.dir/src/main.cpp.o
  /opt/ros/kinetic/include/dynamixel_sdk/group_sync_write.h
  /opt/ros/kinetic/include/dynamixel_sdk/packet_handler.h
  /opt/ros/kinetic/include/dynamixel_sdk/port_handler.h
- /opt/ros/kinetic/include/dynamixel_workbench_controllers/message_header.h
- /opt/ros/kinetic/include/dynamixel_workbench_controllers/position_control.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/AX.h
+ /opt/ros/kinetic/include/dynamixel_workbench_controllers/dynamixel_workbench_controllers.h
+ /opt/ros/kinetic/include/dynamixel_workbench_controllers/trajectory_generator.h
+ /opt/ros/kinetic/include/dynamixel_workbench_msgs/DynamixelCommand.h
+ /opt/ros/kinetic/include/dynamixel_workbench_msgs/DynamixelCommandRequest.h
+ /opt/ros/kinetic/include/dynamixel_workbench_msgs/DynamixelCommandResponse.h
  /opt/ros/kinetic/include/dynamixel_workbench_msgs/DynamixelState.h
  /opt/ros/kinetic/include/dynamixel_workbench_msgs/DynamixelStateList.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/EX.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/JointCommand.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/JointCommandRequest.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/JointCommandResponse.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/MX.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/MX2.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/MX2Ext.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/MXExt.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/PRO.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/PROExt.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/RX.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/XH.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/XL.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/XL320.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/XM.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/XMExt.h
- /opt/ros/kinetic/include/dynamixel_workbench_toolbox/control_table_item.h
  /opt/ros/kinetic/include/dynamixel_workbench_toolbox/dynamixel_driver.h
  /opt/ros/kinetic/include/dynamixel_workbench_toolbox/dynamixel_item.h
  /opt/ros/kinetic/include/dynamixel_workbench_toolbox/dynamixel_tool.h
  /opt/ros/kinetic/include/dynamixel_workbench_toolbox/dynamixel_workbench.h
  /opt/ros/kinetic/include/geometry_msgs/Quaternion.h
+ /opt/ros/kinetic/include/geometry_msgs/Twist.h
  /opt/ros/kinetic/include/geometry_msgs/Vector3.h
  /opt/ros/kinetic/include/hardware_interface/controller_info.h
  /opt/ros/kinetic/include/hardware_interface/hardware_interface.h
@@ -254,12 +229,15 @@ lilibot/CMakeFiles/lilibot_node.dir/src/main.cpp.o
  /opt/ros/kinetic/include/sensor_msgs/Joy.h
  /opt/ros/kinetic/include/serial/serial.h
  /opt/ros/kinetic/include/serial/v8stdint.h
+ /opt/ros/kinetic/include/std_msgs/Bool.h
  /opt/ros/kinetic/include/std_msgs/Float32MultiArray.h
  /opt/ros/kinetic/include/std_msgs/Float64.h
  /opt/ros/kinetic/include/std_msgs/Header.h
  /opt/ros/kinetic/include/std_msgs/MultiArrayDimension.h
  /opt/ros/kinetic/include/std_msgs/MultiArrayLayout.h
  /opt/ros/kinetic/include/std_msgs/String.h
+ /opt/ros/kinetic/include/trajectory_msgs/JointTrajectory.h
+ /opt/ros/kinetic/include/trajectory_msgs/JointTrajectoryPoint.h
  /opt/ros/kinetic/include/urdf/model.h
  /opt/ros/kinetic/include/urdf/urdfdom_compatibility.h
  /opt/ros/kinetic/include/xmlrpcpp/XmlRpcDecl.h
@@ -307,33 +285,19 @@ lilibot/CMakeFiles/lilibot_node.dir/src/robot.cpp.o
  /opt/ros/kinetic/include/dynamixel_sdk/group_sync_write.h
  /opt/ros/kinetic/include/dynamixel_sdk/packet_handler.h
  /opt/ros/kinetic/include/dynamixel_sdk/port_handler.h
- /opt/ros/kinetic/include/dynamixel_workbench_controllers/message_header.h
- /opt/ros/kinetic/include/dynamixel_workbench_controllers/position_control.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/AX.h
+ /opt/ros/kinetic/include/dynamixel_workbench_controllers/dynamixel_workbench_controllers.h
+ /opt/ros/kinetic/include/dynamixel_workbench_controllers/trajectory_generator.h
+ /opt/ros/kinetic/include/dynamixel_workbench_msgs/DynamixelCommand.h
+ /opt/ros/kinetic/include/dynamixel_workbench_msgs/DynamixelCommandRequest.h
+ /opt/ros/kinetic/include/dynamixel_workbench_msgs/DynamixelCommandResponse.h
  /opt/ros/kinetic/include/dynamixel_workbench_msgs/DynamixelState.h
  /opt/ros/kinetic/include/dynamixel_workbench_msgs/DynamixelStateList.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/EX.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/JointCommand.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/JointCommandRequest.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/JointCommandResponse.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/MX.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/MX2.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/MX2Ext.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/MXExt.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/PRO.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/PROExt.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/RX.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/XH.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/XL.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/XL320.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/XM.h
- /opt/ros/kinetic/include/dynamixel_workbench_msgs/XMExt.h
- /opt/ros/kinetic/include/dynamixel_workbench_toolbox/control_table_item.h
  /opt/ros/kinetic/include/dynamixel_workbench_toolbox/dynamixel_driver.h
  /opt/ros/kinetic/include/dynamixel_workbench_toolbox/dynamixel_item.h
  /opt/ros/kinetic/include/dynamixel_workbench_toolbox/dynamixel_tool.h
  /opt/ros/kinetic/include/dynamixel_workbench_toolbox/dynamixel_workbench.h
  /opt/ros/kinetic/include/geometry_msgs/Quaternion.h
+ /opt/ros/kinetic/include/geometry_msgs/Twist.h
  /opt/ros/kinetic/include/geometry_msgs/Vector3.h
  /opt/ros/kinetic/include/hardware_interface/controller_info.h
  /opt/ros/kinetic/include/hardware_interface/hardware_interface.h
@@ -411,12 +375,15 @@ lilibot/CMakeFiles/lilibot_node.dir/src/robot.cpp.o
  /opt/ros/kinetic/include/sensor_msgs/Joy.h
  /opt/ros/kinetic/include/serial/serial.h
  /opt/ros/kinetic/include/serial/v8stdint.h
+ /opt/ros/kinetic/include/std_msgs/Bool.h
  /opt/ros/kinetic/include/std_msgs/Float32MultiArray.h
  /opt/ros/kinetic/include/std_msgs/Float64.h
  /opt/ros/kinetic/include/std_msgs/Header.h
  /opt/ros/kinetic/include/std_msgs/MultiArrayDimension.h
  /opt/ros/kinetic/include/std_msgs/MultiArrayLayout.h
  /opt/ros/kinetic/include/std_msgs/String.h
+ /opt/ros/kinetic/include/trajectory_msgs/JointTrajectory.h
+ /opt/ros/kinetic/include/trajectory_msgs/JointTrajectoryPoint.h
  /opt/ros/kinetic/include/urdf/model.h
  /opt/ros/kinetic/include/urdf/urdfdom_compatibility.h
  /opt/ros/kinetic/include/xmlrpcpp/XmlRpcDecl.h
@@ -529,6 +496,7 @@ lilibot/CMakeFiles/lilibot_node.dir/src/rosClass.cpp.o
  /opt/ros/kinetic/include/sensor_msgs/Imu.h
  /opt/ros/kinetic/include/sensor_msgs/JointState.h
  /opt/ros/kinetic/include/sensor_msgs/Joy.h
+ /opt/ros/kinetic/include/std_msgs/Bool.h
  /opt/ros/kinetic/include/std_msgs/Float32MultiArray.h
  /opt/ros/kinetic/include/std_msgs/Float64.h
  /opt/ros/kinetic/include/std_msgs/Header.h

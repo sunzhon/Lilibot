@@ -2,18 +2,22 @@ cmake_minimum_required(VERSION 2.8.3)
 project(lilibot)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
-
+add_compile_options(-std=c++11)
+SET(CMAKE_BUILD_TYPE "Debug")
+#if(NOT CMAKE_CXX_STANDARD)
+#    set(CMAKE_CXX_STANDARD 14)
+#endif()
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-roscpp
-rospy
-serial
-std_msgs
-dynamixel_workbench_msgs
-dynamixel_workbench_toolbox
+  roscpp
+  rospy
+  serial
+  std_msgs
+  dynamixel_workbench_msgs
+  dynamixel_workbench_toolbox
+  dynamixel_workbench_controllers
 )
 
 ## System dependencies are found with CMake's conventions
@@ -73,7 +77,7 @@ dynamixel_workbench_toolbox
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
+#   std_msgs
 # )
 
 ################################################
@@ -107,11 +111,12 @@ dynamixel_workbench_toolbox
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES lilibot
+  LIBRARIES 
   CATKIN_DEPENDS roscpp rospy std_msgs
   DEPENDS system_lib
   dynamixel_workbench_msgs
   dynamixel_workbench_toolbox
+  serial
 )
 
 ###########
@@ -121,9 +126,9 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
- include
- include/lilibot/
- ${catkin_INCLUDE_DIRS}
+  include
+  include/lilibot/
+  ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -139,15 +144,8 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-aux_source_directory(${PROJECT_NAME}/src SRCS)
+# add_executable(${PROJECT_NAME}_node src/lilibot_node.cpp)
 
-add_executable(${PROJECT_NAME}_node src/main.cpp ${SRCS}
- src/robot.cpp
- src/rosClass.cpp
- src/lilibot.cpp
- src/ststick.cpp
- src/joystick.cpp
-)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -156,16 +154,27 @@ add_executable(${PROJECT_NAME}_node src/main.cpp ${SRCS}
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
- add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
- target_link_libraries(${PROJECT_NAME}_node
-   ${catkin_LIBRARIES}
- )
+aux_source_directory(${PROJECT_NAME}/src SRCS)
+message("SRCS=${SRCS}")
+add_executable(${PROJECT_NAME}_node src/main.cpp ${SRCS}
+src/robot.cpp
+src/rosClass.cpp
+src/lilibot.cpp
+src/ststick.cpp
+src/joystick.cpp
+
+)
+add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(${PROJECT_NAME}_node ${catkin_LIBRARIES})
+
+
 
 #############
 ## Install ##
 #############
+
 
 # all install targets should use catkin DESTINATION variables
 # See http://ros.org/doc/api/catkin/html/adv_user_guide/variables.html
@@ -178,11 +187,11 @@ add_executable(${PROJECT_NAME}_node src/main.cpp ${SRCS}
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS ${PROJECT_NAME} ${PROJECT_NAME}_node
+ install(TARGETS  ${PROJECT_NAME}_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+   RUNTIME DESTINATION ${PROJECT_SOURCE_DIR}/
+ )
 
 ## Mark cpp header files for installation
 # install(DIRECTORY include/${PROJECT_NAME}/

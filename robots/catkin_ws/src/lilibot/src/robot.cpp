@@ -16,6 +16,13 @@ namespace lilibot_ns
 
         motorValue.resize(rob->motor_num);
         sensorValue.resize(rob->sensor_num);
+
+        // get parameter thread
+        if(pthread_create(&tid, NULL, paramServiceThread, (void *)this) != 0){ 
+            perror("create thread fail in controller!\n");
+        } 
+        rob->getParameters();
+
         ROS_INFO("robot node start successful!\n");
     }
 
@@ -24,14 +31,27 @@ namespace lilibot_ns
         delete ros;
         delete stick;
     }
+    void Robot::paramService(){
+        rob->getParameters();
+    }   
+
+    void *Robot::paramServiceThread(void * arg){
+        Robot * ptr = (Robot*) arg;
+        while(!ptr->ros->terminate){
+        ptr->paramService();
+        sleep(1);
+        }
+        pthread_exit(0);
+    }
 
     bool Robot::run(){
         if(ros::ok()){
-            rob->getSensorValue(sensorValue);
+            rob->getSensoryValue(sensorValue);
             ros->readSensorValue(sensorValue);
             ros->writeMotorValue(motorValue);
             rob->setMotorValue(motorValue);
             stick->guide();
+            ros->rosSleep();
             return true;
         }else{
             return false;

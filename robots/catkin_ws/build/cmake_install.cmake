@@ -68,38 +68,47 @@ endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/install/setup.bash")
+   "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/install/setup.bash;/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/install/local_setup.bash")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/install" TYPE FILE FILES "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/build/catkin_generated/installspace/setup.bash")
+file(INSTALL DESTINATION "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/install" TYPE FILE FILES
+    "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/build/catkin_generated/installspace/setup.bash"
+    "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/build/catkin_generated/installspace/local_setup.bash"
+    )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/install/setup.sh")
+   "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/install/setup.sh;/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/install/local_setup.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/install" TYPE FILE FILES "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/build/catkin_generated/installspace/setup.sh")
+file(INSTALL DESTINATION "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/install" TYPE FILE FILES
+    "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/build/catkin_generated/installspace/setup.sh"
+    "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/build/catkin_generated/installspace/local_setup.sh"
+    )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/install/setup.zsh")
+   "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/install/setup.zsh;/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/install/local_setup.zsh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/install" TYPE FILE FILES "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/build/catkin_generated/installspace/setup.zsh")
+file(INSTALL DESTINATION "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/install" TYPE FILE FILES
+    "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/build/catkin_generated/installspace/setup.zsh"
+    "/home/suntao/workspace/stbot/lilibot/robots/catkin_ws/build/catkin_generated/installspace/local_setup.zsh"
+    )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")

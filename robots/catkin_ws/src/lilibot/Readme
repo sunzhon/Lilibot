@@ -1,0 +1,8 @@
+name variable rules:
+
+    1)  read() and wriet(), they are communication function,
+ read() means acquire data from other files, device , class or modules; write() means transfer data to these place
+
+    2) getOutput() and setInput(), they are interface of class, or modules, they are doors for communciating between them with envioroment
+    
+     
