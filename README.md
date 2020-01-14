@@ -17,11 +17,17 @@ The control code is putted in controllers folder,and the robots folder is the in
 3) The steps to implement this project on your PC (Ubuntu OS):
 
 3.0) Install VREP
+
 3.1) Install ROS kinetic or melodic depending on the version of your ubuntu 
+
 3.2) Install git
+
 3.3) mkdir -p ~/workspace/stbot/ && cd ~/workspace/stbot/
+
 3.4) git clone https://gitlab.com/neutron-nuaa/lilibot
+
 3.5) cd ./lilibot/catkin_ws && catkin_make
+
 3.6) Run simularion, 
     a) roscore
     b) cd vrep_simualtion && vrep ~/workspace/stbot/vrep_simulation/lilibot-V5.ttt
