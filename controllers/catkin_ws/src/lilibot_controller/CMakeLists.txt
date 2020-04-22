@@ -137,8 +137,14 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
+AUX_SOURCE_DIRECTORY( ./src CONTROLLER_SRCS)
  add_executable(${PROJECT_NAME}_node src/lilibot_controller_node.cpp
      src/rosClass.cpp
+     src/esnForwardmodel.cpp
+     src/matrix.cpp
+     src/matrixutils.cpp
+     src/networkmatrix.cpp
+     ${CONTROLLER_SRCS}
      )
 
 
@@ -156,6 +162,8 @@ include_directories(
 ## Specify libraries to link a library or executable target against
  target_link_libraries(${PROJECT_NAME}_node
    ${catkin_LIBRARIES}
+   gsl
+   gslcblas
  )
 
 #############

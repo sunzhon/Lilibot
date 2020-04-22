@@ -4,7 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/suntao/workspace/stbot/lilibot/controllers/catkin_ws/src/lilibot_controller/src/esnForwardmodel.cpp" "/home/suntao/workspace/stbot/lilibot/controllers/catkin_ws/build/lilibot_controller/CMakeFiles/lilibot_controller_node.dir/src/esnForwardmodel.cpp.o"
   "/home/suntao/workspace/stbot/lilibot/controllers/catkin_ws/src/lilibot_controller/src/lilibot_controller_node.cpp" "/home/suntao/workspace/stbot/lilibot/controllers/catkin_ws/build/lilibot_controller/CMakeFiles/lilibot_controller_node.dir/src/lilibot_controller_node.cpp.o"
+  "/home/suntao/workspace/stbot/lilibot/controllers/catkin_ws/src/lilibot_controller/src/matrix.cpp" "/home/suntao/workspace/stbot/lilibot/controllers/catkin_ws/build/lilibot_controller/CMakeFiles/lilibot_controller_node.dir/src/matrix.cpp.o"
+  "/home/suntao/workspace/stbot/lilibot/controllers/catkin_ws/src/lilibot_controller/src/matrixutils.cpp" "/home/suntao/workspace/stbot/lilibot/controllers/catkin_ws/build/lilibot_controller/CMakeFiles/lilibot_controller_node.dir/src/matrixutils.cpp.o"
+  "/home/suntao/workspace/stbot/lilibot/controllers/catkin_ws/src/lilibot_controller/src/networkmatrix.cpp" "/home/suntao/workspace/stbot/lilibot/controllers/catkin_ws/build/lilibot_controller/CMakeFiles/lilibot_controller_node.dir/src/networkmatrix.cpp.o"
   "/home/suntao/workspace/stbot/lilibot/controllers/catkin_ws/src/lilibot_controller/src/rosClass.cpp" "/home/suntao/workspace/stbot/lilibot/controllers/catkin_ws/build/lilibot_controller/CMakeFiles/lilibot_controller_node.dir/src/rosClass.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
@@ -20,8 +24,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/suntao/workspace/stbot/lilibot/controllers/catkin_ws/src/lilibot_controller/include"
   "/home/suntao/workspace/stbot/lilibot/controllers/catkin_ws/src/lilibot_controller/include/lilibot_controller"
-  "/opt/ros/kinetic/include"
-  "/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
+  "/opt/ros/melodic/include"
+  "/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   )
 
 # Targets to which this target links.

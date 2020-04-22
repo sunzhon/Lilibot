@@ -5,6 +5,7 @@
  */
 #include "rosClass.h"
 #include <math.h>
+#include "esnForwardmodel.h"
 using namespace stcontroller;
 
 #define HipAmp 0.2
@@ -15,6 +16,7 @@ using namespace stcontroller;
 int main(int argc,char* argv[])
 {
     RosClass ros(argc,argv);
+    ESNForwardmodel esn(0);// 0 is the ID for a esn
     std::vector<float> motorValue;
     motorValue.resize(12);
     unsigned long int t=0;
