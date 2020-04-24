@@ -28,6 +28,9 @@ The control code is putted in controllers folder,and the robots folder is the in
 
 3.5) cd ./lilibot/catkin_ws && catkin_make
 
+3.5) add a environment variable in your ~/.bashrc or ~/.zshrc, like this:
+    export ROS_HOSTNAME=$(hostname)
+
 3.6) Run simularion, 
     a) roscore
     b) cd vrep_simualtion && vrep ~/workspace/stbot/vrep_simulation/lilibot-V5.ttt

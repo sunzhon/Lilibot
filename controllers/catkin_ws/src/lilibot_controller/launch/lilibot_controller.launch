@@ -1,9 +1,10 @@
 <launch>
-    <machine name="st-pc"  address="st-pc" env-loader="/home/suntao/workspace/gorobots/projects/stbot/genesis/catkin_ws/src/stbot/config/stbot_env.zsh" user="suntao" />
-    <machine name="nuc"  address="nuc" env-loader="/home/sun/workspace/gorobots/utils/real_robots/stbot/catkin_ws/src/lilistbot/config/lilistbot_env.zsh" user="sun" />
-
-    <arg name="lilibot_controller" default="lilibot" />
     <arg name="hostname" default="$(env ROS_HOSTNAME)"/>
+    <arg name="lilibot_controller" default="lilibot" />
+    <arg name="user" default="$(env USER)" />
+
+    <machine name="$(arg hostname)"  address="$(arg hostname)" env-loader="./../config/stbot_env.zsh" user="$(arg user)" />
+    <machine name="nuc"  address="nuc" env-loader="/home/sun/workspace/gorobots/utils/real_robots/stbot/catkin_ws/src/lilistbot/config/lilistbot_env.zsh" user="sun" />
 
     <rosparam file="$(find lilibot_controller)/config/lilibot_controller.yaml" command="load" />
 
