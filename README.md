@@ -1,11 +1,10 @@
-
 # Lilibot
 
--[Introduction](#Introduction)
--[Install](#Install)
--[Getting started](#Getting started)
--[Contact](#Contact)
--[Citation](#Citation)
+    - [Introduction](#Introduction)
+    - [Install](#Install)
+    - [Getting started](#Getting started)
+    - [Contact](#Contact)
+    - [Citation](#Citation)
 
 ## Introduction
 
