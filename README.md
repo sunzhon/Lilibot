@@ -23,18 +23,18 @@ The steps to implement this project on your PC (Ubuntu OS):
 
 3.2) Install git
 
-3.3) mkdir -p ~/workspace/stbot/ && cd ~/workspace/stbot/
+3.3) 'mkdir -p ~/workspace/stbot/ && cd ~/workspace/stbot/'
 
-3.4) git clone https://gitlab.com/neutron-nuaa/lilibot
+3.4) 'git clone https://gitlab.com/neutron-nuaa/lilibot'
 
-3.5) cd ./lilibot/catkin_ws && catkin_make
+3.5) 'cd ./lilibot/catkin_ws && catkin_make'
 
 3.5) add a environment variable in your ~/.bashrc or ~/.zshrc, like this:
-    export ROS_HOSTNAME=$(hostname)
+    'export ROS_HOSTNAME=$(hostname)'
 
 3.6) Run simularion, 
-    a) roscore
-    b) cd vrep_simualtion && vrep ~/workspace/stbot/vrep_simulation/lilibot-V5.ttt
+    a) 'roscore'
+    b) 'cd vrep_simualtion && vrep ~/workspace/stbot/vrep_simulation/lilibot-V5.ttt'
 
 # How to implement your controller
 
