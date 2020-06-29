@@ -53,7 +53,7 @@ The steps to implement this project on your PC (Ubuntu OS):
 Just edit the file of lilibot_controller_node.cpp
 you can find this file at controller/catkin_ws/src/lilibot_controller/src/lilibot_controller_node.cpp
 
-# Video demon
+# Video demos
 
 - http://manoonpong.com/Lilibot/video0.mp4
 - http://manoonpong.com/Lilibot/video1.mp4
