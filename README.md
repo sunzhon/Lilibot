@@ -40,8 +40,7 @@ The hardware overview can be seen in [here](https://gitlab.com/neutron-nuaa/lili
 
 | Foots  | Single leg | Quadruped-Crawing| Quadruped-Standing|
 | ---------------  | ------------- |------------- |------------- |
-| <a href="hardware/mechanics/README.md"><img src="hardware/mechanics/images/Foot_types.png" width="300"></a>|<a href="hardware/mechanics/README.md"><img src="hardware/mechanics/images/SingleLeg.jpg" width="300"></a>|
-<a href="hardware/mechanics/README.md"><img src="hardware/mechanics/images/Lilibot_climb.jpg" width="300"></a>|<a href="hardware/mechanics/README.md"><img src="hardware/mechanics/images/Lilibot_stand.jpg" width="300"></a>|
+| <a href="hardware/mechanics/README.md"><img src="hardware/mechanics/images/Foot_types.jpg" width="300"></a>|<a href="hardware/mechanics/README.md"><img src="hardware/mechanics/images/SingleLeg.jpg" width="300"></a>|<a href="hardware/mechanics/README.md"><img src="hardware/mechanics/images/Lilibot_climb.jpg" width="300"></a>|<a href="hardware/mechanics/README.md"><img src="hardware/mechanics/images/Lilibot_stand.png" width="300"></a>|
 
 
 # Install
