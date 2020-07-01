@@ -3,8 +3,9 @@
 
 
 - [Introduction](#Introduction)
+- [Hardware](#Hardware)
 - [Install](#Install)
-- [Getting started](#Getting started)
+- [Getting started](#Getting start)
 - [Contact](#Contact)
 - [Citation](#Citation)
 
@@ -15,16 +16,31 @@ Lilibot is a small size, light weight, and  open-sourced quadruped robot. It was
 
 This repository includes the Lilibot CAD models, simulator on the virtual robot experimentation platform (V-REP, the new version of the V-REP is called CoppeliaSim at http://www.coppeliarobotics.com/) and its control framework. The control framework is based on the robot system operation (ROS), which provides communications between the real robot, controller, and the simulator (simulated robot). Thus, before one use this system, who need to install V-rep or CoppeliaSim and ROS on Ubuntu 16.04 or 18.04. 
 
+
+
 ### Framework
 
 The files are organized as follows:
-
-The control code is putted in controllers folder,and the robots folder is the interface code for a real robot. The Vrep simulation model was put in vrep_simulation folder.
+ 
+The control code is putted in controllers folder,and the robots folder is the interface code for a real robot. The Vrep simulation model was put in vrep_simulation folder. The mechanics and electronics can be found in hardware
 
 The system overview can be seen in the following image.
 <img src="/doc/images/SystemOverview.jpg" width="450">
 
-The hardware overview can be seen in [here](https://gitlab.com/neutron-nuaa/lilibot/-/tree/master/hardware)
+# Hardware
+The hardware overview can be seen in [here](https://gitlab.com/neutron-nuaa/lilibot/-/tree/master/hardware). The main components are as bellows:
+
+
+## Electronics
+| Onboard computer  | Motor communication board| Power supply board| IMU with USB2USART|
+| ----------------- | ------------ |--------------- |
+| <a href="/hardware/electronics/README.md"><img src="hardware/electronics/images/NUC7i7DB.jpg" width="350"></a>| <a href="hardware/electronics/README.md"><img src="hardware/electronics/images/D2D.jpg" width="270"></a>  | <a href="hardware/electronics/README.md"><img src="hardware/electronics/images/PowerSupply.jpg" width="270"></a>  | <a href="hardware/electronics/README.md"><img src="hardware/electronics/images/JY901.jpg" width="270"></a> |
+
+## Mechanics
+
+| Quadruped 8dof  | Quadruped 12dof | Biped 6dof | TriFingerEdu |
+| ---------------  | ------------- |------------- |------------- |
+| <a href="mechanics/quadruped_robot_8dof_v1/README.md"><img src="mechanics/quadruped_robot_8dof_v1/images/quadruped_8dof_jump_1.jpg" width="300"></a>| <a href="mechanics/quadruped_robot_12dof_v1/README.md"><img src="mechanics/quadruped_robot_12dof_v1/images/solo_12_cad_1.png" width="300"></a>  |<a href="mechanics/biped_6dof_v1/README.md"><img src="mechanics/biped_6dof_v1/images/biped_navigation.png" width="210"></a>  |  <a href="mechanics/tri_finger_edu_v1/README.md"><img src="mechanics/tri_finger_edu_v1/images/manipulator_navigation.jpg" width="300"></a>   |
 
 # Install
 The steps to implement this project on your PC (Ubuntu OS):
@@ -48,7 +64,7 @@ The steps to implement this project on your PC (Ubuntu OS):
     a) 'roscore'
     b) 'cd vrep_simualtion && vrep ~/workspace/stbot/vrep_simulation/lilibot-V5.ttt'
 
-# Getting started
+# Getting start
 
 Just edit the file of lilibot_controller_node.cpp
 you can find this file at controller/catkin_ws/src/lilibot_controller/src/lilibot_controller_node.cpp
