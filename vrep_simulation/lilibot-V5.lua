@@ -8,8 +8,8 @@ from ROS controller node
 --]]
 -----------------------**********************--------------------------
 function buttonClick_OpenMotor()
-	sim.addStatusbarMessage('You clicked the button of OpenMotor')
-	buttonClickState_OpenMotor = true
+    sim.addStatusbarMessage('You clicked the button of OpenMotor')
+    buttonClickState_OpenMotor = true
 end
 
 --[[
@@ -19,185 +19,185 @@ function sliderChange(ui,id,newVal)
     sliderChangeState=true
     if id<21
         then
-        newVal = newVal/200.0
-        simUI.setLabelText(ui,990+id,'Value: '..newVal)
-        controlParameters[id-9] = newVal
-    else
-        simUI.setLabelText(ui,990+id,'Value: '..newVal)
-        controlParameters[id-9] = newVal
+            newVal = newVal/200.0
+            simUI.setLabelText(ui,990+id,'Value: '..newVal)
+            controlParameters[id-9] = newVal
+        else
+            simUI.setLabelText(ui,990+id,'Value: '..newVal)
+            controlParameters[id-9] = newVal
+        end
     end
-end
 
 
-function setMotorPositions()
-	data={}
---	if (buttonClickState_OpenMotor == true)
---	 then
-   		for i = 1, #joint_array do
- 	 		data[i] = CPGData[i] 
+    function setMotorPositions()
+        data={}
+        --	if (buttonClickState_OpenMotor == true)
+        --	 then
+        for i = 1, #joint_array do
+            data[i] = CPGData[i] 
             --+ reflexData[i]
- 	 	    --	data[i] = reflexData[i]
-		end
+            --	data[i] = reflexData[i]
+        end
 
         for i = 1, #joint_array do
-			simSetJointTargetPosition(joint_array[i], data[i])	
+            simSetJointTargetPosition(joint_array[i], data[i])	
         end
---	end
-	
-end
+        --	end
+
+    end
 
 
-function setCPGMotorData(msg)
-	CPGData=msg.data
-end
+    function setCPGMotorData(msg)
+        CPGData=msg.data
+    end
 
-function setReflexMotorData(msg)
-	reflexData=msg.data
-end
+    function setReflexMotorData(msg)
+        reflexData=msg.data
+    end
 
-function graph_cb(msg)
-    data = msg.data
-    simSetGraphUserData(graphHandleRF,"CPGN0",data[1])
-    simSetGraphUserData(graphHandleRF,"CPGN1",data[2])
-    simSetGraphUserData(graphHandleRF,"PCPGN0",data[3])
-    simSetGraphUserData(graphHandleRF,"PCPGN1",data[4])
-    simSetGraphUserData(graphHandleRF,"PSN10",data[5])
-    simSetGraphUserData(graphHandleRF,"PSN11",data[6])
-    simSetGraphUserData(graphHandleRF,"VRNHip",data[7])
-    simSetGraphUserData(graphHandleRF,"VRNKnee",data[8])
-	simSetGraphUserData(graphHandleRF,"ReflexOut0",data[9])
-    simSetGraphUserData(graphHandleRF,"ReflexOut1",data[10])
-    simSetGraphUserData(graphHandleRF,"ReflexOut2",data[11])
-    simSetGraphUserData(graphHandleRF,"GRF",data[12])
---[[
-	simSetGraphUserData(graphHandleRF,"PMN0",data[13])
-    simSetGraphUserData(graphHandleRF,"PMN1",data[14])
-    simSetGraphUserData(graphHandleRF,"PMN2",data[15])
-	simSetGraphUserData(graphHandleRF,"Jaf0",data[16])
-    simSetGraphUserData(graphHandleRF,"Jaf1",data[17])
-    simSetGraphUserData(graphHandleRF,"Jaf2",data[18])
---]]
-    simSetGraphUserData(graphHandleRH,"CPGN0",data[19])
-    simSetGraphUserData(graphHandleRH,"CPGN1",data[20])
-    simSetGraphUserData(graphHandleRH,"PCPGN0",data[21])
-    simSetGraphUserData(graphHandleRH,"PCPGN1",data[22])
-    simSetGraphUserData(graphHandleRH,"PSN10",data[23])
-    simSetGraphUserData(graphHandleRH,"PSN11",data[24])
-    simSetGraphUserData(graphHandleRH,"VRNHip",data[25])
-    simSetGraphUserData(graphHandleRH,"VRNKnee",data[26])
-	simSetGraphUserData(graphHandleRH,"ReflexOut0",data[27])
-    simSetGraphUserData(graphHandleRH,"ReflexOut1",data[28])
-    simSetGraphUserData(graphHandleRH,"ReflexOut2",data[29])
-    simSetGraphUserData(graphHandleRH,"GRF",data[30])
---[[
-	simSetGraphUserData(graphHandleRH,"PMN0",data[31])
-    simSetGraphUserData(graphHandleRH,"PMN1",data[32])
-    simSetGraphUserData(graphHandleRH,"PMN2",data[33])
-	simSetGraphUserData(graphHandleRH,"Jaf0",data[34])
-    simSetGraphUserData(graphHandleRH,"Jaf1",data[35])
-    simSetGraphUserData(graphHandleRH,"Jaf2",data[36])
---]]
+    function graph_cb(msg)
+        data = msg.data
+        simSetGraphUserData(graphHandleRF,"CPGN0",data[1])
+        simSetGraphUserData(graphHandleRF,"CPGN1",data[2])
+        simSetGraphUserData(graphHandleRF,"PCPGN0",data[3])
+        simSetGraphUserData(graphHandleRF,"PCPGN1",data[4])
+        simSetGraphUserData(graphHandleRF,"PSN10",data[5])
+        simSetGraphUserData(graphHandleRF,"PSN11",data[6])
+        simSetGraphUserData(graphHandleRF,"VRNHip",data[7])
+        simSetGraphUserData(graphHandleRF,"VRNKnee",data[8])
+        simSetGraphUserData(graphHandleRF,"ReflexOut0",data[9])
+        simSetGraphUserData(graphHandleRF,"ReflexOut1",data[10])
+        simSetGraphUserData(graphHandleRF,"ReflexOut2",data[11])
+        simSetGraphUserData(graphHandleRF,"GRF",data[12])
+        --[[
+        simSetGraphUserData(graphHandleRF,"PMN0",data[13])
+        simSetGraphUserData(graphHandleRF,"PMN1",data[14])
+        simSetGraphUserData(graphHandleRF,"PMN2",data[15])
+        simSetGraphUserData(graphHandleRF,"Jaf0",data[16])
+        simSetGraphUserData(graphHandleRF,"Jaf1",data[17])
+        simSetGraphUserData(graphHandleRF,"Jaf2",data[18])
+        --]]
+        simSetGraphUserData(graphHandleRH,"CPGN0",data[19])
+        simSetGraphUserData(graphHandleRH,"CPGN1",data[20])
+        simSetGraphUserData(graphHandleRH,"PCPGN0",data[21])
+        simSetGraphUserData(graphHandleRH,"PCPGN1",data[22])
+        simSetGraphUserData(graphHandleRH,"PSN10",data[23])
+        simSetGraphUserData(graphHandleRH,"PSN11",data[24])
+        simSetGraphUserData(graphHandleRH,"VRNHip",data[25])
+        simSetGraphUserData(graphHandleRH,"VRNKnee",data[26])
+        simSetGraphUserData(graphHandleRH,"ReflexOut0",data[27])
+        simSetGraphUserData(graphHandleRH,"ReflexOut1",data[28])
+        simSetGraphUserData(graphHandleRH,"ReflexOut2",data[29])
+        simSetGraphUserData(graphHandleRH,"GRF",data[30])
+        --[[
+        simSetGraphUserData(graphHandleRH,"PMN0",data[31])
+        simSetGraphUserData(graphHandleRH,"PMN1",data[32])
+        simSetGraphUserData(graphHandleRH,"PMN2",data[33])
+        simSetGraphUserData(graphHandleRH,"Jaf0",data[34])
+        simSetGraphUserData(graphHandleRH,"Jaf1",data[35])
+        simSetGraphUserData(graphHandleRH,"Jaf2",data[36])
+        --]]
 
-    simSetGraphUserData(graphHandleLF,"CPGN0",data[37])
-    simSetGraphUserData(graphHandleLF,"CPGN1",data[38])
-    simSetGraphUserData(graphHandleLF,"PCPGN0",data[39])
-    simSetGraphUserData(graphHandleLF,"PCPGN1",data[40])
-    simSetGraphUserData(graphHandleLF,"PSN10",data[41])
-    simSetGraphUserData(graphHandleLF,"PSN11",data[42])
-    simSetGraphUserData(graphHandleLF,"VRNHip",data[43])
-    simSetGraphUserData(graphHandleLF,"VRNKnee",data[44])
-	simSetGraphUserData(graphHandleLF,"ReflexOut0",data[45])
-    simSetGraphUserData(graphHandleLF,"ReflexOut1",data[46])
-    simSetGraphUserData(graphHandleLF,"ReflexOut2",data[47])
-    simSetGraphUserData(graphHandleLF,"GRF",data[48])
---[[
-	simSetGraphUserData(graphHandleLF,"PMN0",data[49])
-    simSetGraphUserData(graphHandleLF,"PMN1",data[50])
-    simSetGraphUserData(graphHandleLF,"PMN2",data[51])
-	simSetGraphUserData(graphHandleLF,"Jaf0",data[52])
-    simSetGraphUserData(graphHandleLF,"Jaf1",data[53])
-    simSetGraphUserData(graphHandleLF,"Jaf2",data[54])
---]]
+        simSetGraphUserData(graphHandleLF,"CPGN0",data[37])
+        simSetGraphUserData(graphHandleLF,"CPGN1",data[38])
+        simSetGraphUserData(graphHandleLF,"PCPGN0",data[39])
+        simSetGraphUserData(graphHandleLF,"PCPGN1",data[40])
+        simSetGraphUserData(graphHandleLF,"PSN10",data[41])
+        simSetGraphUserData(graphHandleLF,"PSN11",data[42])
+        simSetGraphUserData(graphHandleLF,"VRNHip",data[43])
+        simSetGraphUserData(graphHandleLF,"VRNKnee",data[44])
+        simSetGraphUserData(graphHandleLF,"ReflexOut0",data[45])
+        simSetGraphUserData(graphHandleLF,"ReflexOut1",data[46])
+        simSetGraphUserData(graphHandleLF,"ReflexOut2",data[47])
+        simSetGraphUserData(graphHandleLF,"GRF",data[48])
+        --[[
+        simSetGraphUserData(graphHandleLF,"PMN0",data[49])
+        simSetGraphUserData(graphHandleLF,"PMN1",data[50])
+        simSetGraphUserData(graphHandleLF,"PMN2",data[51])
+        simSetGraphUserData(graphHandleLF,"Jaf0",data[52])
+        simSetGraphUserData(graphHandleLF,"Jaf1",data[53])
+        simSetGraphUserData(graphHandleLF,"Jaf2",data[54])
+        --]]
 
-    simSetGraphUserData(graphHandleLH,"CPGN0",data[55])
-    simSetGraphUserData(graphHandleLH,"CPGN1",data[56])
-    simSetGraphUserData(graphHandleLH,"PCPGN0",data[57])
-    simSetGraphUserData(graphHandleLH,"PCPGN1",data[58])
-    simSetGraphUserData(graphHandleLH,"PSN10",data[59])
-    simSetGraphUserData(graphHandleLH,"PSN11",data[60])
-    simSetGraphUserData(graphHandleLH,"VRNHip",data[61])
-    simSetGraphUserData(graphHandleLH,"VRNKnee",data[62])
-	simSetGraphUserData(graphHandleLH,"ReflexOut0",data[63])
-    simSetGraphUserData(graphHandleLH,"ReflexOut1",data[64])
-    simSetGraphUserData(graphHandleLH,"ReflexOut2",data[65])
-    simSetGraphUserData(graphHandleLH,"GRF",data[66])
---[[
-	simSetGraphUserData(graphHandleLH,"PMN0",data[67])
-    simSetGraphUserData(graphHandleLH,"PMN1",data[68])
-    simSetGraphUserData(graphHandleLH,"PMN2",data[69])
-	simSetGraphUserData(graphHandleLH,"Jaf0",data[70])
-    simSetGraphUserData(graphHandleLH,"Jaf1",data[71])
-    simSetGraphUserData(graphHandleLH,"Jaf2",data[72])
---]]
-end
+        simSetGraphUserData(graphHandleLH,"CPGN0",data[55])
+        simSetGraphUserData(graphHandleLH,"CPGN1",data[56])
+        simSetGraphUserData(graphHandleLH,"PCPGN0",data[57])
+        simSetGraphUserData(graphHandleLH,"PCPGN1",data[58])
+        simSetGraphUserData(graphHandleLH,"PSN10",data[59])
+        simSetGraphUserData(graphHandleLH,"PSN11",data[60])
+        simSetGraphUserData(graphHandleLH,"VRNHip",data[61])
+        simSetGraphUserData(graphHandleLH,"VRNKnee",data[62])
+        simSetGraphUserData(graphHandleLH,"ReflexOut0",data[63])
+        simSetGraphUserData(graphHandleLH,"ReflexOut1",data[64])
+        simSetGraphUserData(graphHandleLH,"ReflexOut2",data[65])
+        simSetGraphUserData(graphHandleLH,"GRF",data[66])
+        --[[
+        simSetGraphUserData(graphHandleLH,"PMN0",data[67])
+        simSetGraphUserData(graphHandleLH,"PMN1",data[68])
+        simSetGraphUserData(graphHandleLH,"PMN2",data[69])
+        simSetGraphUserData(graphHandleLH,"Jaf0",data[70])
+        simSetGraphUserData(graphHandleLH,"Jaf1",data[71])
+        simSetGraphUserData(graphHandleLH,"Jaf2",data[72])
+        --]]
+    end
 
---[[
-Callback function for displaying data on a graph
-resived from ROS controller node
---]]
+    --[[
+    Callback function for displaying data on a graph
+    resived from ROS controller node
+    --]]
 
-function initParametersSlide()
- 
-	 -- User Interface setup
-        
-    xml = [[ <ui closeable="false" resizable="true" style="plastique" title="PSN-VRN ">
-    <label text="Psn_L:" wordwrap="true" />
-    <label text="Value: 0" id="1000" wordwrap="true" />
-    <hslider id="10" tick-position="both-sides" tick-interval="1" minimum="-200" maximum="200" onchange="sliderChange" style="plastique" />
+    function initParametersSlide()
 
-    <label text="VRNHip_L" wordwrap="true" />
-    <label text="Value: 0" id="1001" wordwrap="true" />
-    <hslider id="11" tick-position="both-sides" tick-interval="1" minimum="-200" maximum="200" onchange="sliderChange" style="plastique" />
+        -- User Interface setup
 
-    <label text="VRNKnee_L" wordwrap="true" />
-    <label text="Value: 0" id="1002" wordwrap="true" />
-    <hslider id="12" tick-position="both-sides" tick-interval="1" minimum="-200" maximum="200" onchange="sliderChange" style="plastique" />
+        xml = [[ <ui closeable="false" resizable="true" style="plastique" title="PSN-VRN ">
+        <label text="Psn_L:" wordwrap="true" />
+        <label text="Value: 0" id="1000" wordwrap="true" />
+        <hslider id="10" tick-position="both-sides" tick-interval="1" minimum="-200" maximum="200" onchange="sliderChange" style="plastique" />
 
-    <label text="Psn_R" wordwrap="true" />
-    <label text="Value: 0" id="1003" wordwrap="true" />
-    <hslider id="13" tick-position="both-sides" tick-interval="1" minimum="-200" maximum="200" onchange="sliderChange" style="plastique" />
-    
-    <label text="VRNHip_R" wordwrap="true" />
-    <label text="Value: 0" id="1004" wordwrap="true" />
-    <hslider id="14" tick-position="both-sides" tick-interval="1" minimum="-200" maximum="200" onchange="sliderChange" style="plastique" />
-    
-    <label text="VRNKnee_R" wordwrap="true" />
-    <label text="Value: 0" id="1005" wordwrap="true" />
-    <hslider id="15" tick-position="both-sides" tick-interval="1" minimum="-200" maximum="200" onchange="sliderChange" style="plastique" />
+        <label text="VRNHip_L" wordwrap="true" />
+        <label text="Value: 0" id="1001" wordwrap="true" />
+        <hslider id="11" tick-position="both-sides" tick-interval="1" minimum="-200" maximum="200" onchange="sliderChange" style="plastique" />
 
-	</ui> ]]
-    -- Create User Interface
-    uiPSNVRN=simUI.create(xml)
-    xml= [[ <ui closeable="false" resizable="true" style="plastique" title="MNBias">
-    <label text="MNBias1" wordwrap="true" />
-    <label text="Value: 0" id="1006" wordwrap="true" />
-    <hslider id="16" tick-position="both-sides" tick-interval="1" minimum="-200" maximum="200" onchange="sliderChange" style="plastique" />
+        <label text="VRNKnee_L" wordwrap="true" />
+        <label text="Value: 0" id="1002" wordwrap="true" />
+        <hslider id="12" tick-position="both-sides" tick-interval="1" minimum="-200" maximum="200" onchange="sliderChange" style="plastique" />
 
-    <label text="MNBias2" wordwrap="true" />
-    <label text="Value: 0" id="1007" wordwrap="true" />
-    <hslider id="17" tick-position="both-sides" tick-interval="1" minimum="-750" maximum="600" onchange="sliderChange" style="plastique" />
+        <label text="Psn_R" wordwrap="true" />
+        <label text="Value: 0" id="1003" wordwrap="true" />
+        <hslider id="13" tick-position="both-sides" tick-interval="1" minimum="-200" maximum="200" onchange="sliderChange" style="plastique" />
 
-    <label text="MNBias3" wordwrap="true" />
-    <label text="Value: 0" id="1008" wordwrap="true" />
-    <hslider id="18" tick-position="both-sides" tick-interval="1" minimum="-750" maximum="600" onchange="sliderChange" style="plastique" />
-    </ui> ]]
-    uiMNBias=simUI.create(xml)
-    xml = [[ <ui closeable="false" resizable="true" style="plastique" title="CPG-PCPG">
-    <label text="CPGMi" wordwrap="true" />
-    <label text="Value: 0" id="1009" wordwrap="true" />
-    <hslider id="19" tick-position="both-sides" tick-interval="1" minimum="-200" maximum="200" onchange="sliderChange" style="plastique" />
+        <label text="VRNHip_R" wordwrap="true" />
+        <label text="Value: 0" id="1004" wordwrap="true" />
+        <hslider id="14" tick-position="both-sides" tick-interval="1" minimum="-200" maximum="200" onchange="sliderChange" style="plastique" />
 
-    <label text="PCPGBeta" wordwrap="true" />
+        <label text="VRNKnee_R" wordwrap="true" />
+        <label text="Value: 0" id="1005" wordwrap="true" />
+        <hslider id="15" tick-position="both-sides" tick-interval="1" minimum="-200" maximum="200" onchange="sliderChange" style="plastique" />
+
+        </ui> ]]
+        -- Create User Interface
+        uiPSNVRN=simUI.create(xml)
+        xml= [[ <ui closeable="false" resizable="true" style="plastique" title="MNBias">
+        <label text="MNBias1" wordwrap="true" />
+        <label text="Value: 0" id="1006" wordwrap="true" />
+        <hslider id="16" tick-position="both-sides" tick-interval="1" minimum="-200" maximum="200" onchange="sliderChange" style="plastique" />
+
+        <label text="MNBias2" wordwrap="true" />
+        <label text="Value: 0" id="1007" wordwrap="true" />
+        <hslider id="17" tick-position="both-sides" tick-interval="1" minimum="-750" maximum="600" onchange="sliderChange" style="plastique" />
+
+        <label text="MNBias3" wordwrap="true" />
+        <label text="Value: 0" id="1008" wordwrap="true" />
+        <hslider id="18" tick-position="both-sides" tick-interval="1" minimum="-750" maximum="600" onchange="sliderChange" style="plastique" />
+        </ui> ]]
+        uiMNBias=simUI.create(xml)
+        xml = [[ <ui closeable="false" resizable="true" style="plastique" title="CPG-PCPG">
+        <label text="CPGMi" wordwrap="true" />
+        <label text="Value: 0" id="1009" wordwrap="true" />
+        <hslider id="19" tick-position="both-sides" tick-interval="1" minimum="-200" maximum="200" onchange="sliderChange" style="plastique" />
+
+        <label text="PCPGBeta" wordwrap="true" />
     <label text="Value: 0" id="1010" wordwrap="true" />
     <hslider id="20" tick-position="both-sides" tick-interval="1" minimum="-200" maximum="200" onchange="sliderChange" style="plastique" />
 
@@ -380,8 +380,11 @@ function sysCall_sensing()
     end	
 
     for i = 1, #foot_sensor_array do
-    reuslt,force,torque = sim.readForceSensor(foot_sensor_array[i])
-    sensor_array[i + #joint_array] = force[3]/10.0 --+ ((force[3]/10.0 > 0.1) and 0.5*math.random() or 0.0) --let the value into [0,1] --force[3]/10.0 
+        reuslt,force,torque = sim.readForceSensor(foot_sensor_array[i])
+        if(force==nil) then
+            force={0.0,0.0,0.0}
+        end
+        sensor_array[i + #joint_array] = math.sqrt(force[1]^2 + force[2]^2 + force[3]^2)/20.0 --+ ((force[3]/10.0 > 0.1) and 0.5*math.random() or 0.0) --let the value into [0,1] --force[3]/10.0 
     end
     -- please don't change this value,
 
@@ -391,7 +394,10 @@ function sysCall_sensing()
     end
 
     for i = 1, #foot_sensor_array do
-    reuslt,force,torque = sim.readForceSensor(foot_sensor_array[i])
+        reuslt,force,torque = sim.readForceSensor(foot_sensor_array[i])
+        if(force==nil) then
+            force={0.0,0.0,0.0}
+        end
     sensor_array[i + #joint_array + #foot_sensor_array + #eularAngles] = force[1]/10.0	--let the value into [0,1]
     end												-- please don't change this value,
     simROS.publish(sensorValuePub,{data=sensor_array})
