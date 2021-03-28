@@ -77,7 +77,7 @@ Just edit the file of lilibot_controller_node.cpp
 you can find this file at controller/catkin_ws/src/lilibot_controller/src/lilibot_controller_node.cpp
 
 # Video demos
-
+## Real robot
 - http://manoonpong.com/Lilibot/video0.mp4
 - http://manoonpong.com/Lilibot/video1.mp4
 - http://manoonpong.com/Lilibot/video2.mp4
@@ -88,6 +88,10 @@ you can find this file at controller/catkin_ws/src/lilibot_controller/src/lilibo
 
 - http://www.manoonpong.com/AdaptiveCommunications/video4.mp4
 
+## Simulated robot
+- http://www.manoonpong.com/DFFB/video1.mp4
+- http://www.manoonpong.com/DFFB/video2.mp4
+- http://www.manoonpong.com/DFFB/video3.mp4
 
 
 
