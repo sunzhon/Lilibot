@@ -52,6 +52,8 @@ The hardware overview can be seen in [here](https://gitlab.com/neutron-nuaa/lili
 # Install
 The steps to implement this project on your PC (Ubuntu OS):
 
+### Implementation of the simulated Lilibot
+
 3.0) Install VREP
 
 3.1) Install ROS kinetic or melodic depending on the version of your ubuntu 
@@ -70,6 +72,27 @@ The steps to implement this project on your PC (Ubuntu OS):
 3.6) Run simularion, 
     a) 'roscore'
     b) 'cd vrep_simualtion && vrep ~/workspace/stbot/vrep_simulation/lilibot-V5.ttt'
+
+
+
+### Implementation of the real Lilibot
+
+1) Prepare 12 XM430-W350-R servo motors
+2) Manufacture the components of the mechanics of Lilibot
+3) Assemble the componments and servos
+4) Prepare a onboard PC (e.g., NUC7i7DNBE), and connect the servos to your onboard PC through usb-rs485 transfer interface
+5) Install ROS kinetic or melodic depending on the version of your ubuntu 
+6) Install git
+7) open a terminal and run command 'mkdir -p ~/workspace/stbot/ && cd ~/workspace/stbot/'
+8) open a terminal and run command 'git clone https://gitlab.com/neutron-nuaa/lilibot'
+9) run command 'cd ./lilibot/catkin_ws && catkin_make' in a terminal
+10) add a environment variable in your ~/.bashrc or ~/.zshrc, like this:
+    'export ROS_HOSTNAME=$(hostname)'
+
+11) Run the real robot, 
+
+
+
 
 # Getting start
 
